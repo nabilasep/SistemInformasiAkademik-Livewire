@@ -1,0 +1,24 @@
+<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full">
+        <form wire:submit.prevent="saveFakultas">
+            <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                    {{ $fakultas_id ? 'Edit Fakultas' : 'Tambah Fakultas Baru' }}
+                </h3>
+                <div class="mt-4">
+                    <label for="nama_fakultas" class="block text-sm font-medium text-gray-700">Nama Fakultas</label>
+                    <input type="text" wire:model.defer="nama_fakultas" id="nama_fakultas" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Contoh: Fakultas Teknik">
+                    @error('nama_fakultas') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 sm:ml-3 sm:w-auto sm:text-sm">
+                    Simpan
+                </button>
+                <button type="button" wire:click="closeModal()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:w-auto sm:text-sm">
+                    Batal
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
